@@ -25,7 +25,8 @@ Gem::Specification.new do |s|
     "VERSION",
     "lib/with_statement.rb",
     "test/helper.rb",
-    "test/test_with_statement.rb"
+    "test/test_with_statement.rb",
+    "with_statement.gemspec"
   ]
   s.homepage = %q{http://github.com/mvaled/with_statement}
   s.licenses = ["MIT"]

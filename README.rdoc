@@ -1,19 +1,48 @@
 = with_statement
 
-Description goes here.
+This simple gem implements a Kernel#with method much like Python's
+with statement.
+
+Simple usage:
+
+  with expression do |resource|
+    # ... interact with resource ...
+  end
+
+The expression passed must return a context manager. A context manager
+is an object which implements two methods: +acquire+ and
++release+. When Kernel#with receives the context manager it calls its
++acquire+ method and grab the result. Then it yields the result to the
+block. When the block returns, the context manager send the +release+
+message to the context manager.
+
+Kernel#with by itself does not attempt to run +acquire+ or +release+
+atomically; the context manager should ensure that if required.
 
 == Contributing to with_statement
  
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
+* Check out the latest master to make sure the feature hasn't been
+  implemented or the bug hasn't been fixed yet
+
+* Check out the issue tracker to make sure someone already hasn't
+  requested it and/or contributed it
+
 * Fork the project
+
 * Start a feature/bugfix branch
+
 * Commit and push until you are happy with your contribution
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+* Make sure to add tests for it. This is important so I don't break it
+  in a future version unintentionally.
+
+* Please try not to mess with the Rakefile, version, or history. If
+  you want to have your own version, or is otherwise necessary, that
+  is fine, but please isolate to its own commit so I can cherry-pick
+  around it.
 
 == Copyright
 
-Copyright (c) 2010 Manuel Vázquez Acosta. See LICENSE.txt for
-further details.
+Copyright (c) 2010 Manuel Vázquez Acosta. See LICENSE.txt for further
+details.
 

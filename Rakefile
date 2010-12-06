@@ -16,7 +16,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/mvaled/with_statement"
   gem.license = "MIT"
   gem.summary = %Q{A simple with statement}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.description = %Q{With statements opens the Kernel and defines a with method which behaves similar to Python with statement}
   gem.email = "mva.led@gmail.com"
   gem.authors = ["Manuel Vázquez Acosta"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,

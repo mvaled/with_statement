@@ -5,22 +5,46 @@ with statement.
 
 Simple usage:
 
-  with expression do |resource|
-    # ... interact with resource ...
-  end
+    with expression do |resource|
+      # ... interact with resource ...
+    end
 
-The expression passed must return a context manager. A context manager
-is an object which implements two methods: +acquire+ and
-+release+. When Kernel#with receives the context manager it calls its
-+acquire+ method and grab the result. Then it yields the result to the
-block. When the block returns, the context manager send the +release+
-message to the context manager.
+The expression must return a context manager. A context manager is an
+object which implements two methods: +acquire+ and +release+. When
+Kernel#with receives the context manager it calls its +acquire+ method
+and grab the result. Then it yields the result to the block. When the
+block returns, the context manager send the +release+ message to the
+context manager.
 
 Kernel#with by itself does not attempt to run +acquire+ or +release+
 atomically; the context manager should ensure that if required.
 
+Since 0.2.0 release you can put several context managers in a single
+with sentence:
+
+    with exp1, exp2 do |r1, r2|
+      # do something with the acquired resources
+    end
+
+That sentence it's semantically equivalent to:
+
+    with exp1 do |r1|
+      with exp2 do }r2|
+        # do something with the acquired resources
+      end
+    end
+
+The general syntax for the Kernel#with method is:
+
+    with(*managers){|*resources|
+      #code
+    }
+
+If any of the context managers fails to enter (acquire), the block is
+never executed and any previous acquired resource is released.
+
 == Contributing to with_statement
- 
+
 * Check out the latest master to make sure the feature hasn't been
   implemented or the bug hasn't been fixed yet
 

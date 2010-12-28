@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{with_statement}
-  s.version = "0.1.1"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Manuel V\303\241zquez Acosta"]
-  s.date = %q{2010-12-06}
+  s.date = %q{2010-12-28}
   s.description = %q{With statements opens the Kernel and defines a with method which behaves similar to Python with statement}
   s.email = %q{mva.led@gmail.com}
   s.extra_rdoc_files = [

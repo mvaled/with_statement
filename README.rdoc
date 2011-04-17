@@ -76,6 +76,6 @@ arguments. This is make with an idiomatic substitution for Object#tap.
 
 == Copyright
 
-Copyright (c) 2010 Manuel Vázquez Acosta. See LICENSE.txt for further
-details.
+Copyright (c) 2010, 2011 Manuel Vázquez Acosta. See LICENSE.txt for
+further details.
 

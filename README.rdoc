@@ -29,7 +29,7 @@ with sentence:
 That sentence it's semantically equivalent to:
 
     with exp1 do |r1|
-      with exp2 do }r2|
+      with exp2 do |r2|
         # do something with the acquired resources
       end
     end

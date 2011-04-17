@@ -43,6 +43,15 @@ The general syntax for the Kernel#with method is:
 If any of the context managers fails to enter (acquire), the block is
 never executed and any previous acquired resource is released.
 
+=== Non context managers
+
+As of version 0.3.0, with allows non-context managers to be passed as
+arguments. This is make with an idiomatic substitution for Object#tap.
+
+    with 12 + 98 do |result|
+      puts result
+    end
+
 == Contributing to with_statement
 
 * Check out the latest master to make sure the feature hasn't been

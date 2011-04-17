@@ -20,11 +20,11 @@ module Kernel
   private
 
   def simple_with(resource, &block)
-    what = resource.acquire
+    what = resource.respond_to?(:acquire) ? resource.acquire : resource
     begin
       yield(what)
     ensure
-      resource.release
+      resource.release if resource.respond_to? :release
     end
   end
 end

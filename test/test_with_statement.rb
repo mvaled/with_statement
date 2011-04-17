@@ -113,5 +113,19 @@ class TestWithStatement < Test::Unit::TestCase
         with @resource
       end
     end
+
+    should "allow to be used with non-resource objects" do
+      with 21 + 10 + 78 do |result|
+        assert result == 21 + 10 + 78
+      end
+    end
+
+    should "allow the intermixed resource and non-resource objects" do
+      with @resource, true, @inner do |which, aboolean, what|
+        assert @resource == which
+        assert aboolean
+        assert @inner == what
+      end
+    end
   end
 end
